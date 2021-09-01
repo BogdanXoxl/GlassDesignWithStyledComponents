@@ -5,7 +5,7 @@ export const StyledGames = styled.div`
   flex: 2;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  //justify-content: space-evenly;
   padding: 1rem 1rem 0 3rem;
 `;
 

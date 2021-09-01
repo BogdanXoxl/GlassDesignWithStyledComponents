@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Glass = styled.div`
   background: var(--white);
   min-height: 80vh;
-  min-width: 60%;
+  min-width: 70%;
   background: linear-gradient(
           to right bottom,
           rgba(255, 255, 255, 0.7),

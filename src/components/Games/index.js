@@ -1,43 +1,23 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import {Cards, Status, StyledGames} from "./Games.styles";
 import Card from "../Card";
+import Loader from "../Loader";
+import {useSearchData} from "../../hooks/useSearchData";
 
-const games = [
-    {
-        title: "Assassins Creed Valhalla",
-        desc: "PS5 Version",
-        percentage: 60,
-        src: "https://github.com/developedbyed/glass-website/blob/master/images/assassins.png?raw=true"
-    },
-    {
-        title: "Spider-Man: Miles Morales ",
-        desc: "PS5 Version",
-        percentage: 80,
-        src: "https://github.com/developedbyed/glass-website/blob/master/images/spiderman.png?raw=true"
-    },
-    {
-        title: "Sackboy: A Big Adventure",
-        desc: "PS5 Version",
-        percentage: 30,
-        src: "https://github.com/developedbyed/glass-website/blob/master/images/sackboy.png?raw=true"
-    },
-    {
-        title: "Assassins",
-        desc: "PS5 Version",
-        percentage: 60,
-        src: "https://github.com/developedbyed/glass-website/blob/master/images/assassins.png?raw=true"
-    },
-];
 
 const Games = () => {
+    const {games, value, loading, error, setValue} = useSearchData();
     return (
         <StyledGames>
             <Status>
                 <h1>Active Games</h1>
-                <input type="text" name="" id=""/>
+                <input type="text" name="" id=""  value={value} onChange={(e) => setValue(e.currentTarget.value)}/>
             </Status>
             <Cards>
-                {games.map(game => <Card {...game} key={game.title + game.src}/>)}
+                {loading?
+                    <Loader/> :
+                    games.map(game => <Card {...game} key={game.title + game.src}/>)
+                }
             </Cards>
         </StyledGames>
     );
